@@ -3,10 +3,13 @@ pipeline{
 
     stages{
         stage('setup'){
-            steps{
-                echo 'Creating python virtual environment.....'
-                sh 'python3 -m venv venv'
-                sh '.venv/bin/activate && pip install -r requirements.txt'
+            steps {
+                sh '''
+                    python3 -m venv .venv
+                    . .venv/bin/activate
+                    pip install --upgrade pip
+                    pip install pytest
+                '''
             }
         }
 
