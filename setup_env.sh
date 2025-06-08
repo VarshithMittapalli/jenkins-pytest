@@ -2,8 +2,9 @@
 
 set -e
 
+apt-get update && apt-get install -y python3-pip
 echo "Creating Virtual environment"
-python3 -m venv venv
+python3 -m venv .venv
 
 echo "Downloading dependencies"
 pip install -r requirements.txt
